@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" 
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<constant name="struts.multipart.maxSize" value="20971520"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<constant name="struts.convention.action.mapallmatches" value="true"/>
+	<package name="studentInfo" extends="struts-default">
+	<global-allowed-methods>regex:.*</global-allowed-methods>
+		
+		<action name="user" class="com.fanye.action.UserAction">
+			<result name="error">login.jsp</result>
+			<result name="success">main.jsp</result>
+			<result name="logout" type="redirect">login.jsp</result>
+		</action>
+		
+		<action name="dataDicType" class="com.fanye.action.DataDicTypeAction">
+			<result name="success">main.jsp</result>
+			<result name="typeSave" type="redirectAction">dataDicType</result>
+		</action>
+		
+		<action name="dataDic" class="com.fanye.action.DataDicAction">
+			<result name="success">main.jsp</result>
+			<result name="save" type="redirectAction">dataDic</result>
+		</action>
+		
+		<action name="grade" class="com.fanye.action.GradeAction">
+			<result name="success">main.jsp</result>
+			<result name="typeSave" type="redirectAction">grade</result>
+		</action>
+		
+		<action name="class" class="com.fanye.action.ClassAction">
+			<result name="success">main.jsp</result>
+			<result name="save" type="redirectAction">class</result>
+		</action>
+		
+		<action name="student" class="com.fanye.action.StudentAction">
+			<result name="success">main.jsp</result>
+			<result name="save" type="redirectAction">student</result>
+			<interceptor-ref name="fileUpload">
+	            <param name="allowedTypes">image/bmp,image/x-png,image/gif,image/jpg,image/jpeg</param>
+	            <param name="maximumSize">2000000</param>
+            </interceptor-ref>
+	        <interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+	</package>
+	
+</struts>

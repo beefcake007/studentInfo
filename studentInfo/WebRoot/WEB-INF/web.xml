@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" 
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+	http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+	
+	<display-name>studentInfo</display-name>
+	
+	 <filter>
+	 	<filter-name>struts</filter-name><!--过滤器名称-->
+	 	<filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	 </filter>
+	 <filter-mapping>
+         <filter-name>struts</filter-name><!--和上面的必须一致-->
+         <url-pattern>/*</url-pattern><!--过滤地址，*表示过滤所有页面-->
+     </filter-mapping>
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
